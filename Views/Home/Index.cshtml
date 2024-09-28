@@ -92,3 +92,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    const dropdown = document.getElementById('dropdownMenu');
+    const priceDisplay = document.getElementById('priceDisplay');
+
+    dropdown.addEventListener('change', function () {
+        const selectedOption = dropdown.options[dropdown.selectedIndex];
+        const price = selectedOption.getAttribute('data-price');
+        priceDisplay.innerText = price;
+    });
+</script>
