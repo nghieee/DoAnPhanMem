@@ -2,6 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    .product-slide .card-text {
+        height: 36px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
 <div class="main__slider">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -24,15 +35,36 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container pt-5 pb-5">
+    <div class="main__product container pt-5 pb-5">
         <h2 class="text-uppercase fw-500 text-center font-serif pt-5 p-4">Top sản phẩm bán chạy</h2>
-        <div class="row row-cols-4">
+        <div class="product-slide row row-cols-4">
             <div class="col">
                 <div class="card border-0">
                     <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
                     <div class="card-body text-center">
                         <h5 class="card-title font-18">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
                         <p class="card-text fst-italic font-12">Sữa rửa mặt tạo bọt, giúp làm sạch sâu hiệu quả mà không gây khô da, đồng thời cung cấp các dưỡng chất cần thiết và làm dịu da.</p>
+                    </div>
+                    <div class="form-group d-flex justify-content-center align-items-center">
+                        <label for="dropdownMenu" class="font-12 me-2">Chọn dung tích:</label>
+                        <select class="form-control w-50" id="dropdownMenu">
+                            <option value="75ml" data-price="550,000đ" selected>75ml</option>
+                            <option value="230ml" data-price="1,000,000đ">230ml</option>
+                            <option value="500ml" data-price="1,800,000đ">500ml</option>
+                        </select>
+                    </div>
+                    <div class="font-18 text-center fw-500 pt-2 pb-2">
+                        <span id="priceDisplay">550,000đ</span>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark">THÊM VÀO GIỎ HÀNG</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0">
+                    <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-18">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
+                        <p class="card-text fst-italic font-12">Sữa rửâ</p>
                     </div>
                     <div class="form-group d-flex justify-content-center align-items-center">
                         <label for="dropdownMenu" class="font-12 me-2">Chọn dung tích:</label>
