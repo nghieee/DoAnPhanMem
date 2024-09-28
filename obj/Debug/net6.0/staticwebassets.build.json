@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PBd46P78he4miBEOY8RixtBO633YlmhoQtsO5kMC4nw=",
+  "Hash": "ENt80PyEpwKPSqhc25/8OYzj4MpaW3IgA1CCTlOp3Mo=",
   "Source": "DoAnPhanMem",
   "BasePath": "_content/DoAnPhanMem",
   "Mode": "Default",
@@ -16,44 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DoAnPhanMem.styles.css",
-      "SourceId": "DoAnPhanMem",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/DoAnPhanMem",
-      "RelativePath": "DoAnPhanMem.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DoAnPhanMem.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DoAnPhanMem.bundle.scp.css",
-      "SourceId": "DoAnPhanMem",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/DoAnPhanMem",
-      "RelativePath": "DoAnPhanMem.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DoAnPhanMem.bundle.scp.css"
-    },
     {
       "Identity": "C:\\Users\\admin\\source\\repos\\DoAnPhanMem\\wwwroot\\css\\site.css",
       "SourceId": "DoAnPhanMem",
