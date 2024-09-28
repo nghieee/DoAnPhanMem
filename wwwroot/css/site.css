@@ -3,6 +3,10 @@ html {
     line-height: 1.15;
 }
 
+.font-serif {
+    font-family: serif !important;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
