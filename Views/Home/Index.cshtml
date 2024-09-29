@@ -65,7 +65,7 @@
                     <div class="font-18 text-center fw-500 pt-2 pb-2">
                         <span id="priceDisplay">550,000đ</span>
                     </div>
-                    <button type="button" class="btn btn-outline-dark">THÊM VÀO GIỎ HÀNG</button>
+                    <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's" data-price="550000">THÊM VÀO GIỎ HÀNG</button>
                 </div>
             </div>
             <div class="col">
@@ -86,7 +86,7 @@
                     <div class="font-18 text-center fw-500 pt-2 pb-2">
                         <span id="priceDisplay">550,000đ</span>
                     </div>
-                    <button type="button" class="btn btn-outline-dark">THÊM VÀO GIỎ HÀNG</button>
+                    <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's" data-price="550000">THÊM VÀO GIỎ HÀNG</button>
                 </div>
             </div>
         </div>
@@ -96,10 +96,41 @@
 <script>
     const dropdown = document.getElementById('dropdownMenu');
     const priceDisplay = document.getElementById('priceDisplay');
+    const addToCartButton = document.querySelector('.add-to-cart');
+    let cart = [];
 
     dropdown.addEventListener('change', function () {
         const selectedOption = dropdown.options[dropdown.selectedIndex];
         const price = selectedOption.getAttribute('data-price');
         priceDisplay.innerText = price;
+        addToCartButton.setAttribute('data-price', price);
     });
+
+    function addToCart(name, price) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(name + " đã được thêm vào giỏ hàng!");
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = cart.length;
+
+        document.querySelector('.cart-count').innerText = cartCount; 
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartDisplay);
+
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+
 </script>
