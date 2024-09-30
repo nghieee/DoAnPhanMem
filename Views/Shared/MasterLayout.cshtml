@@ -71,10 +71,32 @@
                             <i class="fa-solid fa-xmark" style="font-size: 24px;"></i>
                         </button>
                     </div>
-                    <div class="cart-container text-center pt-5 pb-5">
-                        <div class="cart-empty font-12 fst-italic">
+                    <div class="cart-container text-center pt-3 pb-3 pe-2 ps-2">
+                        <div class="cart-empty font-12 fst-italic d-none">
                             <div>Giỏ Hàng Của Bạn Đang Trống</div>
                             <a href="@Url.Action("BestSeller", "Home")" class="text-decoration-underline">Mua Những Được Yêu Thích Nhất Của Kiehl's</a>
+                        </div>
+                        <div class="cart-content">
+                            @* <div class="row-cols-1">
+                                <div class="cart-item col d-flex pt-3 pb-3 border border-1">
+                                    <img src="~/img/sanpham2.png" style="width: 70px; height: 70px;" />
+                                    <div class="cart-detail ps-2 text-start">
+                                        <h6 class="font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h6>
+                                        <span class="font-12 font-serif">550ml</span>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="quantity">
+                                                <input type="number" id="quantityInput" value="1" min="1" max="10" data-price="550000">
+                                            </div>
+                                            <div class="font-14 text-center fw-500">
+                                                <span id="priceDisplay">550,000đ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="close-cart border-0 bg-white" style="height: fit-content; margin-top: -16px;">
+                                        <i class="fa-solid fa-xmark" style="font-size: 12px;" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div> *@
                         </div>
                     </div>
                     <div class="cart-footer position-absolute bottom-0 w-100 p-3 border-top border-1 border-dark">
@@ -82,7 +104,7 @@
                             <h6>Tạm tính</h6>
                             <div class="d-flex">
                                 đ
-                                <div class="ps-2">0</div>
+                                <div class="total-price ps-2">0</div>
                             </div>
                         </div>
                         <div>
@@ -276,20 +298,19 @@
     </footer>
     
     <script>
+        //Đóng mở giỏ hàng
         document.addEventListener("DOMContentLoaded", function () {
             const cartBtn = document.getElementById('cart-btn');
             const closeCartBtn = document.querySelector('.close-cart');
             const cartSidebar = document.querySelector('.cart-sidebar');
             const cartOverlay = document.querySelector('.cart-overlay');
 
-            // Bấm vào nút giỏ hàng
             cartBtn.addEventListener('click', function (event) {
                 event.preventDefault();
                 cartSidebar.classList.add('active');
                 cartOverlay.classList.add('active');
             });
 
-            // Đóng giỏ hàng khi bấm vào nút đóng hoặc overlay
             closeCartBtn.addEventListener('click', function () {
                 cartSidebar.classList.remove('active');
                 cartOverlay.classList.remove('active');
@@ -300,6 +321,7 @@
                 cartOverlay.classList.remove('active');
             });
         });
+;
     </script>
 
 
