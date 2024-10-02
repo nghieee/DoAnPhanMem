@@ -28,6 +28,11 @@ namespace DoAnPhanMem.Controllers
             return View(); 
         }
 
+        public IActionResult Paying()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

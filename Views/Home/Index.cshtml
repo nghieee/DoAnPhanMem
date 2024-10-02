@@ -149,7 +149,14 @@
                 cart.push(product);
             }
 
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            console.log('Sản phẩm đã thêm:', product);
+            console.log('Danh sách giỏ hàng hiện tại:', cart);
+            showAlert(`Đã thêm ${productName} - ${productSize} vào giỏ hàng`);
+
             updateCartDisplay();
+
         });
     });
 
@@ -218,6 +225,7 @@
         //Cập nhật số lượng và tổng tiền trong giao diện
 
         updateTotalPrice();
+
     }
 
     function updateTotalPrice() {
@@ -229,6 +237,24 @@
         const totalPriceDisplay = document.querySelector('.total-price'); //Lấy lại phần tử
         totalPriceDisplay.textContent = totalPrice.toLocaleString('vi-VN'); 
     }
+
+    function showAlert(message) {
+        const alertDiv = document.createElement('div');
+        alertDiv.textContent = message;
+        alertDiv.style.position = 'fixed';
+        alertDiv.style.top = '20px';
+        alertDiv.style.right = '20px';
+        alertDiv.style.backgroundColor = 'green';
+        alertDiv.style.color = 'white';
+        alertDiv.style.padding = '10px';
+        alertDiv.style.borderRadius = '5px';
+        document.body.appendChild(alertDiv);
+
+        setTimeout(function () {
+            alertDiv.remove();
+        }, 3000);  
+    }
+
 
     //Khởi tạo giỏ hàng ban đầu
     updateCartDisplay();
