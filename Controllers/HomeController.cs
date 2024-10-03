@@ -28,7 +28,7 @@ namespace DoAnPhanMem.Controllers
             return View(); 
         }
 
-        public IActionResult Paying()
+        public IActionResult Cart()
         {
             return View();
         }

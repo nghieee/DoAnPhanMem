@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoAnPhanMem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a22f6e826c24a6ce8daa920f6a82153c044bbd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cad9659c25859facaf644e0520b71f1cc396136e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoAnPhanMem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoAnPhanMem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
