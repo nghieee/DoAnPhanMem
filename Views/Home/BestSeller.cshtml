@@ -9,8 +9,8 @@
     }
 
     .custom-dropdown {
-        background-color: transparent; 
-        border: 1px solid #ccc; 
+        background-color: transparent;
+        border: 1px solid #ccc;
     }
 
     .product-item .card-text {
@@ -60,8 +60,82 @@
         </div>
     </div>
     <div class="main__content-list d-flex mt-4 mb-5">
-        <div class="col-3">
-            aaaaas
+        <div class="col-3 pe-4">
+            <div class="p-3 bg-body bg-opacity-25 fw-500">Lọc (<span id="filter-count">0</span>)
+                <a href="#" id="reset-filter" class="float-end text-decoration-underline text-black">Cài lại</a>
+            </div>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item border-bottom border-0">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-500 text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            LOẠI DA
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="accordion-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Tất Cả Loại Da
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Da Thường
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Da Khô
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Da Hỗn Hợp
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-top border-0">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-500 text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            VẤN ĐỀ VỀ DA
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Chống Lão Hóa
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Đốm Thâm
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Lỗ Chân Long To
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="main__content-product col-9">
             <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -100,4 +174,40 @@
         const price = selectedOption.getAttribute('data-price');
         priceDisplay.innerText = price;
     });
+
+    //Start-Filter
+    document.addEventListener('DOMContentLoaded', function () {
+        var checkboxes = document.querySelectorAll('.form-check-input');
+        var filterCount = document.getElementById('filter-count');
+        var resetFilter = document.getElementById('reset-filter');
+
+        //Đếm checkbox
+        function updateFilterCount() {
+            var checkedCount = document.querySelectorAll('.form-check-input:checked').length;
+            filterCount.textContent = checkedCount;
+
+            if (checkedCount > 0) {
+                resetFilter.style.display = 'inline';
+            } else {
+                resetFilter.style.display = 'none';
+            }
+        }
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', updateFilterCount);
+        });
+
+        resetFilter.addEventListener('click', function (event) {
+            event.preventDefault(); 
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+
+            updateFilterCount();
+        });
+
+        updateFilterCount();
+    });
+
 </script>
