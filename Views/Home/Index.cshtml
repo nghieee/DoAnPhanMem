@@ -21,6 +21,44 @@
         text-overflow: ellipsis;
     }
 
+    /* Start_Category */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .category-item:hover .overlay {
+        opacity: 1;
+    }
+
+    .buy-now-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+    
+        .buy-now-btn:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+    /* End_Category */
+
+
     .cart-detail .cart-name {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -52,55 +90,100 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="main__product container pt-5 pb-5">
-        <h2 class="text-uppercase fw-500 text-center font-serif pt-5 p-4">Top sản phẩm bán chạy</h2>
-        <div class="product-slide row row-cols-4">
-            <div class="product col">
-                <div class="card border-0">
-                    <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
-                        <p class="card-text fst-italic font-14 font-serif">Sữa rửa mặt tạo bọt, giúp làm sạch sâu hiệu quả mà không gây khô da, đồng thời cung cấp các dưỡng chất cần thiết và làm dịu da.</p>
-                    </div>
-                    <div class="form-group d-flex justify-content-center align-items-center">
-                        <label for="dropdownMenu1" class="font-12 me-2">Chọn dung tích:</label>
-                        <select id="dropdownMenu1" class="dropdownMenu form-control w-50">
-                            <option value="75ml" data-price="550000" data-size="75ml" selected>75ml</option>
-                            <option value="230ml" data-price="1000000" data-size="230ml">230ml</option>
-                            <option value="500ml" data-price="1800000" data-size="500ml">500ml</option>
-                        </select>
-                    </div>
-                    <div class="font-18 text-center fw-500 pt-2 pb-2">
-                        <span class="priceDisplay">550.000đ</span>
-                    </div>
-                    <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash" data-price="550000" data-size="75ml">THÊM VÀO GIỎ HÀNG</button>
-                </div>
+</div>
+<div class="main__category container pt-5 pb-5">
+    <div class="d-flex justify-content-between">
+        <div class="category-item position-relative" style="width: 268px;">
+            <a href="#" class="position-relative d-block">
+                <img class="w-100" src="~/img/nav1.png" alt="Khuyến Mãi Tháng 10" />
+            </a>
+            <div class="overlay">
+                <h5 class="overlay-text">Khuyến Mãi Tháng 10</h5>
+                <a href="#" class="buy-now-btn">Mua Ngay</a>
             </div>
-            <div class="product col">
-                <div class="card border-0">
-                    <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
-                        <p class="card-text fst-italic font-14 font-serif">Sữa rửa mặt tạo bọt, giúp làm sạch sâu hiệu quả mà không gây khô da, đồng thời cung cấp các dưỡng chất cần thiết và làm dịu da.</p>
-                    </div>
-                    <div class="form-group d-flex justify-content-center align-items-center">
-                        <label for="dropdownMenu1" class="font-12 me-2">Chọn dung tích:</label>
-                        <select id="dropdownMenu1" class="dropdownMenu form-control w-50">
-                            <option value="75ml" data-price="550000" data-size="75ml" selected>75ml</option>
-                            <option value="230ml" data-price="1000000" data-size="230ml">230ml</option>
-                            <option value="500ml" data-price="1800000" data-size="500ml">500ml</option>
-                        </select>
-                    </div>
-                    <div class="font-18 text-center fw-500 pt-2 pb-2">
-                        <span class="priceDisplay">550.000đ</span>
-                    </div>
-                    <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's" data-price="550000" data-size="75ml">THÊM VÀO GIỎ HÀNG</button>
-                </div>
+            <h5 class="font-serif text-center pt-2">KHUYẾN MÃI THÁNG 10</h5>
+        </div>
+        <div class="category-item position-relative" style="width: 268px;">
+            <a href="#" class="position-relative d-block">
+                <img class="w-100" src="~/img/nav1.png" alt="Khuyến Mãi Tháng 10" />
+            </a>
+            <div class="overlay">
+                <h5 class="overlay-text">Khuyến Mãi Tháng 10</h5>
+                <a href="#" class="buy-now-btn">Mua Ngay</a>
             </div>
-
+            <h5 class="font-serif text-center pt-2">KHUYẾN MÃI THÁNG 10</h5>
+        </div>
+        <div class="category-item position-relative" style="width: 268px;">
+            <a href="#" class="position-relative d-block">
+                <img class="w-100" src="~/img/nav1.png" alt="Khuyến Mãi Tháng 10" />
+            </a>
+            <div class="overlay">
+                <h5 class="overlay-text">Khuyến Mãi Tháng 10</h5>
+                <a href="#" class="buy-now-btn">Mua Ngay</a>
+            </div>
+            <h5 class="font-serif text-center pt-2">KHUYẾN MÃI THÁNG 10</h5>
+        </div>
+        <div class="category-item position-relative" style="width: 268px;">
+            <a href="#" class="position-relative d-block">
+                <img class="w-100" src="~/img/nav1.png" alt="Khuyến Mãi Tháng 10" />
+            </a>
+            <div class="overlay">
+                <h5 class="overlay-text">Khuyến Mãi Tháng 10</h5>
+                <a href="#" class="buy-now-btn">Mua Ngay</a>
+            </div>
+            <h5 class="font-serif text-center pt-2">KHUYẾN MÃI THÁNG 10</h5>
         </div>
     </div>
 </div>
+<div class="main__product container pb-5">
+    <h2 class="text-uppercase fw-500 text-center font-serif pt-5 p-5 border-top">Top sản phẩm bán chạy</h2>
+    <div class="product-slide row row-cols-4">
+        <div class="product col">
+            <div class="card border-0">
+                <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
+                    <p class="card-text fst-italic font-14 font-serif">Sữa rửa mặt tạo bọt, giúp làm sạch sâu hiệu quả mà không gây khô da, đồng thời cung cấp các dưỡng chất cần thiết và làm dịu da.</p>
+                </div>
+                <div class="form-group d-flex justify-content-center align-items-center">
+                    <label for="dropdownMenu1" class="font-12 me-2">Chọn dung tích:</label>
+                    <select id="dropdownMenu1" class="dropdownMenu form-control w-50">
+                        <option value="75ml" data-price="550000" data-size="75ml" selected>75ml</option>
+                        <option value="230ml" data-price="1000000" data-size="230ml">230ml</option>
+                        <option value="500ml" data-price="1800000" data-size="500ml">500ml</option>
+                    </select>
+                </div>
+                <div class="font-18 text-center fw-500 pt-2 pb-2">
+                    <span class="priceDisplay">550.000đ</span>
+                </div>
+                <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash" data-price="550000" data-size="75ml">THÊM VÀO GIỎ HÀNG</button>
+            </div>
+        </div>
+        <div class="product col">
+            <div class="card border-0">
+                <img src="~/img/sanpham2.png" class="card-img-top" alt="" />
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h5>
+                    <p class="card-text fst-italic font-14 font-serif">Sữa rửa mặt tạo bọt, giúp làm sạch sâu hiệu quả mà không gây khô da, đồng thời cung cấp các dưỡng chất cần thiết và làm dịu da.</p>
+                </div>
+                <div class="form-group d-flex justify-content-center align-items-center">
+                    <label for="dropdownMenu1" class="font-12 me-2">Chọn dung tích:</label>
+                    <select id="dropdownMenu1" class="dropdownMenu form-control w-50">
+                        <option value="75ml" data-price="550000" data-size="75ml" selected>75ml</option>
+                        <option value="230ml" data-price="1000000" data-size="230ml">230ml</option>
+                        <option value="500ml" data-price="1800000" data-size="500ml">500ml</option>
+                    </select>
+                </div>
+                <div class="font-18 text-center fw-500 pt-2 pb-2">
+                    <span class="priceDisplay">550.000đ</span>
+                </div>
+                <button type="button" class="btn btn-outline-dark add-to-cart" data-name="Sữa Rửa Mặt Hoa Cúc Kiehl's" data-price="550000" data-size="75ml">THÊM VÀO GIỎ HÀNG</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
