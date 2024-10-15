@@ -47,7 +47,7 @@
                 <div class="col-auto">
                     <ul class="d-flex align-items-center">
                         <li class="login-button">
-                            <a href="@Url.Action("Account", "Home")" style="color: white;">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: white;">
                                 <i class="fa-solid fa-user me-1" style="color: #ffffff;"></i>
                                 Đăng nhập
                             </a>
@@ -60,6 +60,79 @@
                         </li>
                     </ul>
                 </div>
+                @* Popup Đăng nhập *@
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="loginForm" action="@Url.Action("...", "...")" method="post">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Tài khoản</label>
+                                        <input type="text" class="form-control" id="username" name="username" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="submit" class="btn btn-primary rounded-pill rounded-pill col-6">Đăng nhập</button>
+                                    </div>
+                                </form>
+
+                                <div class="text-center">
+                                    <p>
+                                        Chưa có tài khoản?
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Đăng ký</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Popup đăng ký *@
+                <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="registerModalLabel">Đăng ký tài khoản</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="registerForm" action="@Url.Action("...", "...")" method="post">
+                                    <div class="mb-3">
+                                        <label for="fullName" class="form-label">Họ và Tên</label>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Địa chỉ</label>
+                                        <input type="text" class="form-control" id="address" name="address" required>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="submit" class="btn btn-primary rounded-pill rounded-pill col-6">Đăng ký</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Phần giỏ hàng -->
                 <div class="cart-sidebar">
@@ -78,24 +151,24 @@
                         </div>
                         <div class="cart-content">
                             @* <div class="row-cols-1">
-                                <div class="cart-item col d-flex pt-3 pb-3 border border-1">
-                                    <img src="~/img/sanpham2.png" style="width: 70px; height: 70px;" />
-                                    <div class="cart-detail ps-2 text-start">
-                                        <h6 class="font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h6>
-                                        <span class="font-12 font-serif">550ml</span>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="quantity">
-                                                <input type="number" id="quantityInput" value="1" min="1" max="10" data-price="550000">
-                                            </div>
-                                            <div class="font-14 text-center fw-500">
-                                                <span id="priceDisplay">550,000đ</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="close-cart border-0 bg-white" style="height: fit-content; margin-top: -16px;">
-                                        <i class="fa-solid fa-xmark" style="font-size: 12px;" aria-hidden="true"></i>
-                                    </button>
-                                </div>
+                            <div class="cart-item col d-flex pt-3 pb-3 border border-1">
+                            <img src="~/img/sanpham2.png" style="width: 70px; height: 70px;" />
+                            <div class="cart-detail ps-2 text-start">
+                            <h6 class="font-serif">Sữa Rửa Mặt Hoa Cúc Kiehl's Calendula Deep Cleansing Foaming Face Wash</h6>
+                            <span class="font-12 font-serif">550ml</span>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="quantity">
+                            <input type="number" id="quantityInput" value="1" min="1" max="10" data-price="550000">
+                            </div>
+                            <div class="font-14 text-center fw-500">
+                            <span id="priceDisplay">550,000đ</span>
+                            </div>
+                            </div>
+                            </div>
+                            <button class="close-cart border-0 bg-white" style="height: fit-content; margin-top: -16px;">
+                            <i class="fa-solid fa-xmark" style="font-size: 12px;" aria-hidden="true"></i>
+                            </button>
+                            </div>
                             </div> *@
                         </div>
                     </div>
@@ -262,8 +335,8 @@
                         </label>
                     </div>
                     <div class="text-white mt-3 font-14">
-                        Trang này được bảo vệ bởi reCAPTCHA, Google 
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách bảo mật</a> và 
+                        Trang này được bảo vệ bởi reCAPTCHA, Google
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách bảo mật</a> và
                         <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Điều khoản dịch vụ</a>.
                     </div>
                     <button type="button" class="btn btn-outline-light mt-3 mb-3 w-50">GỞI</button>
@@ -296,7 +369,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         //Đóng mở giỏ hàng
         document.addEventListener("DOMContentLoaded", function () {
@@ -321,7 +394,7 @@
                 cartOverlay.classList.remove('active');
             });
         });
-;
+        ;
     </script>
 
 
