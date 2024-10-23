@@ -254,7 +254,7 @@ public partial class LongChauStoreContext : DbContext
             entity.Property(e => e.Role)
                 .HasMaxLength(8)
                 .IsUnicode(false);
-            entity.Property(e => e.UserName)
+            entity.Property(e => e.FullName)
                 .HasMaxLength(20)
                 .IsUnicode(false);
 

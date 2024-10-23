@@ -46,12 +46,29 @@
                 </div>
                 <div class="col-auto">
                     <ul class="d-flex align-items-center">
-                        <li class="login-button">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: white;">
-                                <i class="fa-solid fa-user me-1" style="color: #ffffff;"></i>
-                                Đăng nhập
-                            </a>
-                        </li>
+                        @if (ViewBag.Username != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                                    <i class="fa-solid fa-user me-1" style="color: #ffffff;"></i>
+                                    @ViewBag.Username <!-- Hiển thị tên người dùng -->
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="/Account/Profile">Thông tin cá nhân</a></li> <!-- Liên kết đến trang thông tin cá nhân -->
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/Account/Logout">Đăng xuất</a></li> <!-- Đăng xuất -->
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="login-button">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: white;">
+                                    <i class="fa-solid fa-user me-1" style="color: #ffffff;"></i>
+                                    Đăng nhập
+                                </a>
+                            </li>
+                        }
                         <li class="cart-button" style="color: white;">
                             <a href="#" id="cart-btn" style="color: white;">
                                 <i class="fa-solid fa-cart-shopping me-1" style="color: #ffffff;"></i>
@@ -60,6 +77,17 @@
                         </li>
                     </ul>
                 </div>
+                <div id="loginToast" class="toast position-fixed top-0 end-0 p-3" style="z-index: 11;" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Thông báo</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <!-- Thông báo lỗi sẽ được đưa vào đây -->
+                        @TempData["LoginError"]
+                    </div>
+                </div>
+
                 @* Popup Đăng nhập *@
                 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -69,7 +97,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form id="loginForm" action="@Url.Action("...", "...")" method="post">
+                                <form id="loginForm" action="@Url.Action("Login", "Account")" method="post">
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Tài khoản</label>
                                         <input type="text" class="form-control" id="username" name="username" required>
@@ -79,7 +107,7 @@
                                         <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
                                     <div class="modal-footer justify-content-center">
-                                        <button type="submit" class="btn btn-primary rounded-pill rounded-pill col-6">Đăng nhập</button>
+                                        <button type="submit" class="btn btn-primary rounded-pill col-6">Đăng nhập</button>
                                     </div>
                                 </form>
 
@@ -94,7 +122,7 @@
                     </div>
                 </div>
 
-                @* Popup đăng ký *@
+                @* Popup Đăng ký *@
                 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -103,7 +131,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form id="registerForm" action="@Url.Action("...", "...")" method="post">
+                                <form id="registerForm" action="@Url.Action("Register", "Account")" method="post">
                                     <div class="mb-3">
                                         <label for="fullName" class="form-label">Họ và Tên</label>
                                         <input type="text" class="form-control" id="fullName" name="fullName" required>
@@ -124,14 +152,19 @@
                                         <label for="address" class="form-label">Địa chỉ</label>
                                         <input type="text" class="form-control" id="address" name="address" required>
                                     </div>
-                                    <div class="modal-footer justify-content-center">
-                                        <button type="submit" class="btn btn-primary rounded-pill rounded-pill col-6">Đăng ký</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary">Đăng ký</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @if (TempData["RegisterError"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["RegisterError"]
+                    </div>
+                }
 
 
                 <!-- Phần giỏ hàng -->
@@ -395,6 +428,21 @@
             });
         });
         ;
+
+        //Báo lỗi đăng nhập
+        document.addEventListener("DOMContentLoaded", function () {
+            var loginToast = document.getElementById('loginToast');
+
+            if (loginToast.querySelector('.toast-body').textContent.trim() !== "") {
+                var toast = new bootstrap.Toast(loginToast);
+                toast.show();
+
+                setTimeout(function () {
+                    toast.hide();
+                }, 3000);
+            }
+        });
+
     </script>
 
 
